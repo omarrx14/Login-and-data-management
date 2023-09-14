@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/dash.css') }}">
+
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <form action="/search" method="GET">
+        <div class="search-input">
+            <input type="text" id="search-input" name="q" placeholder="Buscar...">
+            <a href="/">Volver a Home</a>
+        </div>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Home Goals</th>
+                <th>Away Goals</th>
+                <th>Home xG</th>
+                <th>Away xG</th>
+                <th>Home Win Probability</th>
+                <th>Draw Probability</th>
+                <th>Away Win Probability</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr class="item"> <!-- Añade la clase "item" a cada fila de datos -->
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>{{ row[8] }}</td>
+                <td>{{ row[9] }}</td>
+                <td>{{ row[10] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- Botones de paginación -->
+
+    
+    <!-- Coloca el script aquí -->
+    <script>
+        // Obtén una referencia al campo de entrada de búsqueda y a los elementos que deseas filtrar
+        const searchInput = document.getElementById('search-input');
+        const itemsToFilter = document.querySelectorAll('.item'); // Ajusta la clase según tu estructura HTML
+
+        // Agrega un evento de escucha para el campo de entrada de búsqueda
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase(); // Obtén el término de búsqueda en minúsculas
+
+            // Recorre los elementos que deseas filtrar
+            itemsToFilter.forEach((item) => {
+                const text = item.textContent.toLowerCase(); // Obtén el texto del elemento en minúsculas
+
+                // Comprueba si el texto del elemento contiene el término de búsqueda
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'table-row'; // Muestra el elemento si coincide
+                } else {
+                    item.style.display = 'none'; // Oculta el elemento si no coincide
+                }
+            });
+        });
+    </script>
+    
+  </html>

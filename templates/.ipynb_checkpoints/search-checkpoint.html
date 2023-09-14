@@ -1,0 +1,11 @@
+<form action="/search" method="GET">
+    <input type="text" name="q" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+    {% for result in results.hits.hits %}
+        <li>{{ result._source.campo }}</li>
+    {% endfor %}
+</ul>
+

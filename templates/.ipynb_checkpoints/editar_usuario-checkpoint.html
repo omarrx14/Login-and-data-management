@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Usuario</title>
+</head>
+<body>
+    <h2>Editar Usuario</h2>
+    <form method="POST" action="">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ usuario[1] }}"><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" value="{{ usuario[2] }}"><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" value="{{ usuario[3] }}"><br>
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" value="{{ usuario[4] }}"><br>
+
+        <label for="username">Username:</label>
+        <input type="username" id="username" name="username" value="{{ usuario[6] }}"><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" value="{{ usuario[5] }}"><br>
+
+        <input type="submit" value="Guardar Cambios">
+    </form>
+    <a href="/usuarios.html">Volver a Usuarios</a>
+</body>
+</html>

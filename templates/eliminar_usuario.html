@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Usuario</title>
+</head>
+<body>
+    <h1>Eliminar Usuario</h1>
+    <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+    <p>Id: {{ usuario[0] }}</p>
+    <p>Nombre: {{ usuario[1] }}</p>
+    <p>Apellido: {{ usuario[2] }}</p>
+    <p>Edad: {{ usuario[3] }}</p>
+    <p>Correo: {{ usuario[4] }}</p>
+    <p>Username: {{ usuario[6] }}</p>
+
+    <form method="POST" action="">
+        <input type="submit" value="Eliminar Usuario">
+    </form>
+    <a href="/usuarios.html">Volver a Usuarios</a>
+</body>
+</html>
